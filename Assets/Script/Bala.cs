@@ -5,8 +5,7 @@ public class Bala : MonoBehaviour
 {
     [SerializeField] private int dano = 1;
     [SerializeField] private float velocidade = 1.5f;
-
-    public GameObject explosao;
+   
     
     private Renderer m_Renderer;
 
@@ -20,12 +19,10 @@ public class Bala : MonoBehaviour
         return this.dano;
     }
     
-
     void Start()
     {
         m_Renderer = GetComponent<Renderer>();
     }
-
 
     void Update()
     {
@@ -39,32 +36,23 @@ public class Bala : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D colisao)
     {
-        if (colisao.gameObject.CompareTag("Inimigo"))
+        if (colisao.CompareTag("Inimigo"))
         {
-            
-            int novaVida = colisao.gameObject.GetComponent<Personagem>().getVida() - getDano();
-            colisao.gameObject.GetComponent<Personagem>().setVida(novaVida);
+            var personagem = colisao.GetComponent<Personagem>();
+            personagem.setVida(personagem.getVida() - dano);
+        }
+
+        if (colisao.CompareTag("Player"))
+        {
+            var personagem = colisao.GetComponent<Personagem>();
+            personagem.setVida(personagem.getVida() - dano);
+
+            Destroy(gameObject);
+            return;
         }
 
        
-        if (!colisao.gameObject.CompareTag("Player") && !colisao.gameObject.CompareTag("Bala"))
-        {
-            if (explosao != null)
-            {
-                ativarExplosao();
-            }
-            
-            Destroy(this.gameObject);
-        }
-
     }
+
     
-      
-    public void ativarExplosao()
-    {
-        explosao.transform.position = transform.position;
-        explosao.transform.parent = null;
-        explosao.SetActive(true);
-    }
-
 }
