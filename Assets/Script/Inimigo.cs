@@ -58,7 +58,7 @@ public class Inimigo : Personagem
             Morrer();
         }
 
-        animator.SetBool("Idle", idle);
+       
     }
 
     private void Morrer()

@@ -40,7 +40,11 @@ public class Bala : MonoBehaviour
         {
             var personagem = colisao.GetComponent<Personagem>();
             personagem.setVida(personagem.getVida() - dano);
+
+            Destroy(gameObject);
+            return;
         }
+
 
         if (colisao.CompareTag("Player"))
         {
