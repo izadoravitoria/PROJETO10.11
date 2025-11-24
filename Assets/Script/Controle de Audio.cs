@@ -6,54 +6,70 @@ using UnityEngine.UI;
 public class ControleDeAudio : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    float masterVolume = 0;
+    public TMP_Text textoMaster;
+    public Slider sliderMaster;
+    public TMP_Text textoSFX;
+    public Slider sliderSFX;
+    public TMP_Text textoMusica;
+    public Slider sliderMusica;
 
-    public TMP_Text texto;
-    public Slider slider;
+    private float masterVolume = 0f;
+    private float sfxVolume = 0f;
+    private float musicaVolume = 0f;
 
-    void Start()
+    private const string PARAM_MASTER = "MASTER"; 
+    private const string PARAM_SFX = "SFX";
+    private const string PARAM_MUSICA = "MUSICA";
+
+    void Awake()
     {
-        audioMixer.GetFloat("Master", out masterVolume);
+        audioMixer.GetFloat(PARAM_MASTER, out masterVolume);
+        sliderMaster.value = masterVolume;
+        SetMasterVolume(masterVolume);
 
-        slider.value = masterVolume;
+        audioMixer.GetFloat(PARAM_SFX, out sfxVolume);
+        sliderSFX.value = sfxVolume;
+        SetSFXVolume(sfxVolume);
+
+        audioMixer.GetFloat(PARAM_MUSICA, out musicaVolume); 
+        sliderMusica.value = musicaVolume;
+        SetMusicVolume(musicaVolume);
+        
+        sliderMaster.onValueChanged.AddListener(SetMasterVolume);
+        sliderSFX.onValueChanged.AddListener(SetSFXVolume);
+        sliderMusica.onValueChanged.AddListener(SetMusicVolume);
     }
-    void Update()
+
+    public void SetMasterVolume(float volume)
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            masterVolume += 1f;
-            audioMixer.SetFloat("Master", masterVolume);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            masterVolume -= 1f;
-            audioMixer.SetFloat("Master", masterVolume);
-        }
-
-
-        masterVolume = slider.value;
-        texto.text = masterVolume.ToString();
-
+        masterVolume = volume;
         if (masterVolume <= -20)
-        {
-            audioMixer.SetFloat("Master", -80f);
-        }
+            audioMixer.SetFloat(PARAM_MASTER, -80f);
         else
-        {
-            audioMixer.SetFloat("Master", masterVolume);
-        }
+            audioMixer.SetFloat(PARAM_MASTER, masterVolume);
 
-        if (musica == true)
-        {
-            textoMusica.text = "Ligado";
-            textoMusica.color = Color.green;
-        }
+        textoMaster.text = masterVolume.ToString("F1");
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = volume;
+        if (sfxVolume <= -20)
+            audioMixer.SetFloat(PARAM_SFX, -80f);
         else
-        {
-            textoMusica.text = "Desligado";
-            textoMusica.color = Color.red;
-        }
+            audioMixer.SetFloat(PARAM_SFX, sfxVolume);
 
+        textoSFX.text = sfxVolume.ToString("F1");
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicaVolume = volume;
+        if (musicaVolume <= -20)
+            audioMixer.SetFloat(PARAM_MUSICA, -80f);
+        else
+            audioMixer.SetFloat(PARAM_MUSICA, musicaVolume);
+
+        textoMusica.text = musicaVolume.ToString("F1");
     }
 }

@@ -106,7 +106,7 @@ MonoBehaviour:
   balaPrefab: {fileID: 2768126945461709381, guid: c6d260c6f3ef9ff469b559036f558e9b, type: 3}
   velocidadeBala: 15
   danoDaBala: 10
-  tempoEntreTiros: 3
+  tempoEntreTiros: 2
 --- !u!1 &1748272440373749578
 GameObject:
   m_ObjectHideFlags: 0
