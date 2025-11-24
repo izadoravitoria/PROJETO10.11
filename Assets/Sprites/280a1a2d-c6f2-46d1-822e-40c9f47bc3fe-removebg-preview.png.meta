@@ -120,6 +120,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -334,7 +360,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_0: 695247573624228925
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_1: -2919635143170778231
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_2: -3756835502186849251
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_3: 5080165106542835988
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_4: -445529914124767558
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_5: -94448814685777050
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_6: 6916072532946573725
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_7: 3748758047345225733
+      280a1a2d-c6f2-46d1-822e-40c9f47bc3fe-removebg-preview_8: -5454078889219116582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
