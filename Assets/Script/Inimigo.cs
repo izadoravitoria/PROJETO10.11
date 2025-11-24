@@ -13,7 +13,7 @@ public class Inimigo : Personagem
     private bool idle = true;
     private bool morto = false;
 
-    private AudioSource audioSource;
+   public AudioSource audioSource;
 
     void Start()
     {
@@ -27,6 +27,8 @@ public class Inimigo : Personagem
         }
 
         raioDeVisao = _visaoCollider2D.radius;
+        
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -65,6 +67,11 @@ public class Inimigo : Personagem
     {
         morto = true;
         animator.SetTrigger("Morte");
+    }
+
+    public void audioplay()
+    {
+        audioSource.Play();
     }
 
     public void DestruirInimigo()
